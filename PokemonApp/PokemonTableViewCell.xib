@@ -24,24 +24,43 @@
                             <constraint firstAttribute="height" constant="100" id="wTF-cH-Gea"/>
                         </constraints>
                     </imageView>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uEy-to-k4Y">
-                        <rect key="frame" x="116" y="46" width="50" height="24"/>
-                        <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="20"/>
-                        <color key="textColor" name="SecondaryColor"/>
-                        <nil key="highlightedColor"/>
-                    </label>
+                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" translatesAutoresizingMaskIntoConstraints="NO" id="RQ5-E6-Td7">
+                        <rect key="frame" x="124" y="36" width="144" height="44.333333333333343"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Pokemon Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uEy-to-k4Y">
+                                <rect key="frame" x="0.0" y="0.0" width="144" height="24"/>
+                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="20"/>
+                                <color key="textColor" name="SecondaryColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IWb-X3-0Wu">
+                                <rect key="frame" x="0.0" y="24" width="41.333333333333336" height="20.333333333333329"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" name="SecondColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                    </stackView>
                     <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="medium" translatesAutoresizingMaskIntoConstraints="NO" id="TpI-Jl-wBo">
                         <rect key="frame" x="48" y="48" width="20" height="20"/>
                     </activityIndicatorView>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="#" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="B53-xe-NMe">
+                        <rect key="frame" x="307.66666666666669" y="7.9999999999999982" width="10.333333333333314" height="20.333333333333329"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <color key="textColor" name="SecondColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
                 </subviews>
+                <color key="backgroundColor" name="FirstColor"/>
                 <constraints>
-                    <constraint firstItem="uEy-to-k4Y" firstAttribute="leading" secondItem="p3r-7h-WMZ" secondAttribute="trailing" constant="8" id="6xQ-JN-7k7"/>
+                    <constraint firstItem="B53-xe-NMe" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="8" id="7gD-9J-5d5"/>
+                    <constraint firstItem="RQ5-E6-Td7" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="9dx-gS-KYt"/>
                     <constraint firstItem="p3r-7h-WMZ" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="8" id="H2V-rt-TVI"/>
-                    <constraint firstItem="uEy-to-k4Y" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="JMV-Kh-1Uf"/>
                     <constraint firstAttribute="bottom" secondItem="p3r-7h-WMZ" secondAttribute="bottom" constant="8" id="NlB-S8-c9T"/>
                     <constraint firstItem="TpI-Jl-wBo" firstAttribute="centerY" secondItem="p3r-7h-WMZ" secondAttribute="centerY" id="ViS-oe-ayM"/>
                     <constraint firstItem="TpI-Jl-wBo" firstAttribute="centerX" secondItem="p3r-7h-WMZ" secondAttribute="centerX" id="ZED-he-Wvm"/>
-                    <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="uEy-to-k4Y" secondAttribute="trailing" constant="8" id="tQ5-F5-QYx"/>
+                    <constraint firstAttribute="trailing" secondItem="B53-xe-NMe" secondAttribute="trailing" constant="8" id="tG6-Bo-3Hp"/>
+                    <constraint firstItem="RQ5-E6-Td7" firstAttribute="leading" secondItem="p3r-7h-WMZ" secondAttribute="trailing" constant="16" id="vk8-hZ-4ms"/>
                     <constraint firstItem="p3r-7h-WMZ" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="yIY-vs-Tj5"/>
                     <constraint firstItem="p3r-7h-WMZ" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="8" id="ytI-Ql-rfa"/>
                 </constraints>
@@ -49,6 +68,8 @@
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <connections>
                 <outlet property="loadingIndicator" destination="TpI-Jl-wBo" id="Lcb-Po-CFZ"/>
+                <outlet property="pokeNumberLabel" destination="B53-xe-NMe" id="YmO-xT-sxa"/>
+                <outlet property="pokeTypeLabel" destination="IWb-X3-0Wu" id="LNo-Jq-I1j"/>
                 <outlet property="pokemonImage" destination="p3r-7h-WMZ" id="csb-aJ-X4n"/>
                 <outlet property="pokemonName" destination="uEy-to-k4Y" id="kYG-dA-aTx"/>
             </connections>
@@ -56,6 +77,12 @@
         </tableViewCell>
     </objects>
     <resources>
+        <namedColor name="FirstColor">
+            <color red="0.9649999737739563" green="0.90200001001358032" blue="0.74099999666213989" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="SecondColor">
+            <color red="0.19200000166893005" green="0.3529999852180481" blue="0.48199999332427979" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
         <namedColor name="SecondaryColor">
             <color red="0.19200000166893005" green="0.3529999852180481" blue="0.48199999332427979" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>

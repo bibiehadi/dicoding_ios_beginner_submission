@@ -31,6 +31,8 @@ extension ViewController: UITableViewDataSource {
             let pokemon = pokemons[indexPath.row]
             cell.pokemonName.text = pokemon.name
             cell.pokemonImage.image = pokemon.imagePhoto
+            cell.pokeTypeLabel.text = pokemon.type
+            cell.pokeNumberLabel.text = pokemon.number
             
             if pokemon.state == .new {
                 cell.loadingIndicator.isHidden = false

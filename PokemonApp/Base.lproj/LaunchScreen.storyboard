@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="23504" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" launchScreen="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="01J-lp-oVM">
-    <device id="retina6_12" orientation="portrait" appearance="light"/>
+    <device id="retina4_0" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="23506"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
@@ -13,30 +13,55 @@
             <objects>
                 <viewController id="01J-lp-oVM" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Ze5-6b-2t3">
-                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="pikachu" translatesAutoresizingMaskIntoConstraints="NO" id="Jre-be-Vxn">
-                                <rect key="frame" x="121.66666666666669" y="363.66666666666669" width="150" height="150.00000000000006"/>
+                                <rect key="frame" x="85" y="219" width="150" height="150"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="150" id="FJ7-61-nFA"/>
                                     <constraint firstAttribute="width" constant="150" id="X7g-bd-Hay"/>
                                 </constraints>
                             </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="PokeApp" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zji-61-jZi">
-                                <rect key="frame" x="152.33333333333334" y="521.66666666666663" width="88.333333333333343" height="25.333333333333371"/>
-                                <fontDescription key="fontDescription" type="boldSystem" pointSize="21"/>
-                                <color key="textColor" name="SecondaryColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
+                            <progressView opaque="NO" contentMode="scaleToFill" semanticContentAttribute="spatial" verticalHuggingPriority="750" progress="0.40000000000000002" translatesAutoresizingMaskIntoConstraints="NO" id="dXT-xl-VuF">
+                                <rect key="frame" x="135" y="418.5" width="50" height="4"/>
+                                <color key="tintColor" name="SecondColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="50" id="8aa-NU-bob"/>
+                                </constraints>
+                                <color key="progressTintColor" name="SecondColor"/>
+                                <color key="trackTintColor" name="FireColor"/>
+                            </progressView>
+                            <stackView opaque="NO" contentMode="scaleToFill" alignment="center" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="GSA-kV-zOG">
+                                <rect key="frame" x="88" y="377" width="116.5" height="25.5"/>
+                                <subviews>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="pokeball_title" translatesAutoresizingMaskIntoConstraints="NO" id="yvz-wT-ZkS">
+                                        <rect key="frame" x="0.0" y="3" width="20" height="20"/>
+                                        <color key="backgroundColor" name="FirstColor"/>
+                                        <color key="tintColor" name="SecondColor"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="20" id="Cle-1x-rgH"/>
+                                            <constraint firstAttribute="height" constant="20" id="QoQ-oq-H72"/>
+                                        </constraints>
+                                    </imageView>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="PokeApp" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zji-61-jZi">
+                                        <rect key="frame" x="28" y="0.0" width="88.5" height="25.5"/>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="21"/>
+                                        <color key="textColor" name="SecondColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                            </stackView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
-                        <color key="backgroundColor" name="PrimaryColor"/>
+                        <color key="backgroundColor" name="FirstColor"/>
                         <constraints>
-                            <constraint firstItem="zji-61-jZi" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="3ev-4r-b4T"/>
+                            <constraint firstItem="dXT-xl-VuF" firstAttribute="top" secondItem="GSA-kV-zOG" secondAttribute="bottom" constant="16" id="40u-qj-BcC"/>
+                            <constraint firstItem="dXT-xl-VuF" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="IWY-Xg-16V"/>
                             <constraint firstItem="Jre-be-Vxn" firstAttribute="centerY" secondItem="6Tk-OE-BBY" secondAttribute="centerY" id="TrR-8C-qVF"/>
                             <constraint firstItem="Jre-be-Vxn" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="Yxy-aX-XqP"/>
-                            <constraint firstItem="zji-61-jZi" firstAttribute="top" secondItem="Jre-be-Vxn" secondAttribute="bottom" constant="8" id="fTv-RA-tHU"/>
+                            <constraint firstItem="zji-61-jZi" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="iJ0-Sl-Ysr"/>
+                            <constraint firstItem="GSA-kV-zOG" firstAttribute="top" secondItem="Jre-be-Vxn" secondAttribute="bottom" constant="8" id="wdB-ch-mqd"/>
                         </constraints>
                     </view>
                 </viewController>
@@ -46,11 +71,15 @@
         </scene>
     </scenes>
     <resources>
-        <image name="pikachu" width="184.33332824707031" height="182"/>
-        <namedColor name="PrimaryColor">
+        <image name="pikachu" width="184.5" height="182"/>
+        <image name="pokeball_title" width="24" height="24"/>
+        <namedColor name="FireColor">
+            <color red="0.98799997568130493" green="0.57999998331069946" blue="0.36100000143051147" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="FirstColor">
             <color red="0.9649999737739563" green="0.90200001001358032" blue="0.74099999666213989" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
-        <namedColor name="SecondaryColor">
+        <namedColor name="SecondColor">
             <color red="0.19200000166893005" green="0.3529999852180481" blue="0.48199999332427979" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
     </resources>
