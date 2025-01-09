@@ -14,6 +14,8 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         pokemonTableView.dataSource = self
+        pokemonTableView.delegate = self
+        
         pokemonTableView.register(UINib(nibName: "PokemonTableViewCell", bundle: nil), forCellReuseIdentifier: "pokemonTableViewCell")
     }
 }
@@ -62,6 +64,20 @@ extension ViewController: UITableViewDataSource {
             }
         }
         
+    }
+}
+
+extension ViewController: UITableViewDelegate {
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        performSegue(withIdentifier: "moveToDetail", sender: pokemons[indexPath.row])
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "moveToDetail" {
+            if let pokeDetailViewController = segue.destination as? PokeDetailViewController {
+                pokeDetailViewController.pokemon = sender as? PokemonModel
+            }
+        }
     }
 }
 
