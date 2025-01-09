@@ -49,7 +49,7 @@
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <connections>
                 <outlet property="loadingIndicator" destination="TpI-Jl-wBo" id="Lcb-Po-CFZ"/>
-                <outlet property="pokemonImage" destination="yIY-vs-Tj5" id="Mdz-Hr-hCk"/>
+                <outlet property="pokemonImage" destination="p3r-7h-WMZ" id="csb-aJ-X4n"/>
                 <outlet property="pokemonName" destination="uEy-to-k4Y" id="kYG-dA-aTx"/>
             </connections>
             <point key="canvasLocation" x="122.13740458015266" y="32.74647887323944"/>

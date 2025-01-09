@@ -6,7 +6,11 @@
 //
 import UIKit
 
-struct PokemonModel {
+enum DownloadState {
+    case new, downloaded, failed
+}
+
+class PokemonModel {
     let number: String
     let name: String
     let description: String
@@ -15,6 +19,20 @@ struct PokemonModel {
     let weakness: [String]
     let skills: [String]
     let type_image: URL
+    
+    var imagePhoto: UIImage?
+    var state: DownloadState = .new
+    
+    init(number: String, name: String, description: String, type: String, photo: URL, weakness: [String], skills: [String], type_image: URL) {
+        self.number = number
+        self.name = name
+        self.description = description
+        self.type = type
+        self.photo = photo
+        self.weakness = weakness
+        self.skills = skills
+        self.type_image = type_image
+    }
 }
 
 let pokemons = [
