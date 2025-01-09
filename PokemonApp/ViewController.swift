@@ -10,7 +10,6 @@ import UIKit
 class ViewController: UIViewController {
 
     @IBOutlet weak var pokemonTableView: UITableView!
-    private let pendingOperations = PendingOperations()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -34,7 +33,7 @@ extension ViewController: UITableViewDataSource {
             if pokemon.state == .new {
                 cell.loadingIndicator.isHidden = false
                 cell.loadingIndicator.startAnimating()
-                startOperations(pokemon: pokemon, indexPath: indexPath)
+                startDownload(pokemon: pokemon, indexPath: indexPath)
             }else {
                 cell.loadingIndicator.stopAnimating()
                 cell.loadingIndicator.isHidden = true
@@ -46,43 +45,36 @@ extension ViewController: UITableViewDataSource {
         }
     }
     
-    fileprivate func startOperations(pokemon: PokemonModel, indexPath: IndexPath) {
-        if pokemon.state == .new {
-            startDownload(pokemon: pokemon, indexPath: indexPath)
-        }
-    }
     
     fileprivate func startDownload(pokemon: PokemonModel, indexPath: IndexPath) {
-        guard pendingOperations.downloadInProgress[indexPath] == nil else {
-            return
-        }
-        
-        let downloader = ImageDownloader(pokemon: pokemon)
-        
-        downloader.completionBlock = {
-            if downloader.isCancelled {return}
-            DispatchQueue.main.async {
-                self.pendingOperations.downloadInProgress.removeValue(forKey: indexPath)
-                self.pokemonTableView.reloadRows(at: [indexPath], with: .automatic)
+        let imageDownloader = ImageDownloader()
+        if pokemon.state == .new {
+            Task {
+                do {
+                    let image = try await imageDownloader.downloadImage(url: pokemon.photo)
+                    pokemon.state = .downloaded
+                    pokemon.imagePhoto = image
+                    self.pokemonTableView.reloadRows(at: [indexPath], with: .automatic)
+                }catch {
+                    pokemon.state = .failed
+                    pokemon.imagePhoto = nil
+                }
             }
         }
-        
-        pendingOperations.downloadInProgress[indexPath] = downloader
-        pendingOperations.downloadQueue.addOperation(downloader)
         
     }
 }
 
-extension ViewController: UIScrollViewDelegate {
-  fileprivate func toggleSuspendOperations(isSuspended: Bool) {
-    pendingOperations.downloadQueue.isSuspended = isSuspended
-  }
-    
-  func scrollViewWillBeginDragging(_ scrollView: UIScrollView) {
-    toggleSuspendOperations(isSuspended: true)
-  }
- 
-  func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
-    toggleSuspendOperations(isSuspended: false)
-  }
-}
+//extension ViewController: UIScrollViewDelegate {
+//  fileprivate func toggleSuspendOperations(isSuspended: Bool) {
+//    pendingOperations.downloadQueue.isSuspended = isSuspended
+//  }
+//    
+//  func scrollViewWillBeginDragging(_ scrollView: UIScrollView) {
+//    toggleSuspendOperations(isSuspended: true)
+//  }
+// 
+//  func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
+//    toggleSuspendOperations(isSuspended: false)
+//  }
+//}

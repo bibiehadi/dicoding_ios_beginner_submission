@@ -7,41 +7,9 @@
 
 import UIKit
 
-class ImageDownloader: Operation {
-    private let pokemon: PokemonModel
-    
-    init(pokemon: PokemonModel) {
-        self.pokemon = pokemon
+class ImageDownloader {
+    func downloadImage(url: URL) async throws -> UIImage {
+        async let imageData: Data = try Data(contentsOf: url)
+        return UIImage(data: try await imageData)!
     }
-    
-    override func main() {
-        if isCancelled {
-            return
-        }
-        
-        guard let imageData = try? Data(contentsOf: self.pokemon.photo) else { return }
-        
-        if isCancelled {
-            return
-        }
-        
-        if !imageData.isEmpty {
-            self.pokemon.imagePhoto = UIImage(data: imageData)
-            self.pokemon.state = .downloaded
-        } else {
-            self.pokemon.imagePhoto = nil
-            self.pokemon.state = .failed
-        }
-    }
-}
-
-class PendingOperations {
-    lazy var downloadInProgress: [IndexPath: Operation] = [:]
-    
-    lazy var downloadQueue: OperationQueue = {
-        var queue = OperationQueue()
-        queue.name = "xyz.pokedex.imagephotodownload"
-        queue.maxConcurrentOperationCount = 2
-        return queue
-    }()
 }
