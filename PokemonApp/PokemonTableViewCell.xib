@@ -25,7 +25,7 @@
                         </constraints>
                     </imageView>
                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" translatesAutoresizingMaskIntoConstraints="NO" id="RQ5-E6-Td7">
-                        <rect key="frame" x="124" y="36" width="144" height="44.333333333333343"/>
+                        <rect key="frame" x="124" y="31.000000000000004" width="144" height="54.333333333333343"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Pokemon Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uEy-to-k4Y">
                                 <rect key="frame" x="0.0" y="0.0" width="144" height="24"/>
@@ -33,13 +33,36 @@
                                 <color key="textColor" name="SecondaryColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IWb-X3-0Wu">
-                                <rect key="frame" x="0.0" y="24" width="41.333333333333336" height="20.333333333333329"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" name="SecondColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
+                            <stackView opaque="NO" contentMode="scaleToFill" alignment="top" translatesAutoresizingMaskIntoConstraints="NO" id="dYi-ov-GXe">
+                                <rect key="frame" x="0.0" y="34" width="71.333333333333329" height="20.333333333333329"/>
+                                <subviews>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="cg4-rX-rZk">
+                                        <rect key="frame" x="0.0" y="0.0" width="20" height="20"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="20" id="VMo-JX-tXm"/>
+                                            <constraint firstAttribute="height" constant="20" id="tcS-7p-fo3"/>
+                                        </constraints>
+                                    </imageView>
+                                    <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="medium" translatesAutoresizingMaskIntoConstraints="NO" id="dcU-Fv-rAS">
+                                        <rect key="frame" x="-10" y="0.0" width="40" height="20"/>
+                                    </activityIndicatorView>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IWb-X3-0Wu">
+                                        <rect key="frame" x="30.000000000000004" y="0.0" width="41.333333333333343" height="20.333333333333332"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <color key="textColor" name="SecondColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="dcU-Fv-rAS" firstAttribute="centerY" secondItem="cg4-rX-rZk" secondAttribute="centerY" id="Jey-KQ-hJ7"/>
+                                    <constraint firstItem="dcU-Fv-rAS" firstAttribute="centerX" secondItem="cg4-rX-rZk" secondAttribute="centerX" id="RNW-Wv-01u"/>
+                                    <constraint firstItem="IWb-X3-0Wu" firstAttribute="leading" secondItem="cg4-rX-rZk" secondAttribute="trailing" constant="10" id="x6j-t7-Fwa"/>
+                                </constraints>
+                            </stackView>
                         </subviews>
+                        <constraints>
+                            <constraint firstItem="dYi-ov-GXe" firstAttribute="top" secondItem="uEy-to-k4Y" secondAttribute="bottom" constant="10" id="5Te-x8-DOt"/>
+                        </constraints>
                     </stackView>
                     <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="medium" translatesAutoresizingMaskIntoConstraints="NO" id="TpI-Jl-wBo">
                         <rect key="frame" x="48" y="48" width="20" height="20"/>
@@ -68,10 +91,13 @@
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <connections>
                 <outlet property="loadingIndicator" destination="TpI-Jl-wBo" id="Lcb-Po-CFZ"/>
+                <outlet property="loadingTypeIndicator" destination="dcU-Fv-rAS" id="j2r-Rl-AAo"/>
                 <outlet property="pokeNumberLabel" destination="B53-xe-NMe" id="YmO-xT-sxa"/>
                 <outlet property="pokeTypeLabel" destination="IWb-X3-0Wu" id="LNo-Jq-I1j"/>
                 <outlet property="pokemonImage" destination="p3r-7h-WMZ" id="csb-aJ-X4n"/>
                 <outlet property="pokemonName" destination="uEy-to-k4Y" id="kYG-dA-aTx"/>
+                <outlet property="pokemonView" destination="H2p-sc-9uM" id="eKb-ja-DDl"/>
+                <outlet property="typeImageView" destination="cg4-rX-rZk" id="F5x-PS-XTc"/>
             </connections>
             <point key="canvasLocation" x="122.13740458015266" y="32.74647887323944"/>
         </tableViewCell>

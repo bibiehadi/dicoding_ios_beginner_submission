@@ -98,6 +98,10 @@
                                     <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="245" id="bvq-uD-WpI"/>
                                 </constraints>
                             </imageView>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="XoW-Lu-7DF">
+                                <rect key="frame" x="16" y="411" width="240" height="128"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                            </tableView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="lda-lt-12S"/>
                         <color key="backgroundColor" name="FirstColor"/>
@@ -112,17 +116,19 @@
                             <constraint firstItem="AgQ-Dj-Ayk" firstAttribute="top" secondItem="Q8I-c4-9yX" secondAttribute="top" constant="30" id="RgE-9L-ejK"/>
                             <constraint firstItem="cCt-Yc-PdS" firstAttribute="top" secondItem="nLU-zj-LrH" secondAttribute="bottom" constant="8" id="XOR-Nl-36q"/>
                             <constraint firstAttribute="trailing" secondItem="6tt-mm-GzZ" secondAttribute="trailing" constant="-63" id="how-ot-z7d"/>
+                            <constraint firstItem="XoW-Lu-7DF" firstAttribute="top" secondItem="AgQ-Dj-Ayk" secondAttribute="bottom" constant="20" id="ikh-cH-dH9"/>
                             <constraint firstItem="AgQ-Dj-Ayk" firstAttribute="leading" secondItem="lda-lt-12S" secondAttribute="leading" constant="16" id="mVY-sa-AU5"/>
-                            <constraint firstItem="lda-lt-12S" firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="AgQ-Dj-Ayk" secondAttribute="bottom" constant="12" id="tiV-Mq-Gyr"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="fRd-0y-wRh"/>
                     <connections>
                         <outlet property="pokeDescLabel" destination="AgQ-Dj-Ayk" id="HRE-av-hyc"/>
+                        <outlet property="pokeDetailView" destination="u1b-4r-Qr2" id="6gu-3p-7d3"/>
                         <outlet property="pokeImageView" destination="nLU-zj-LrH" id="5Hr-j4-AK1"/>
                         <outlet property="pokeNameLabel" destination="cCt-Yc-PdS" id="oVd-tv-pj1"/>
                         <outlet property="pokeTypeImageView" destination="fKD-5H-DWA" id="xSu-KN-YO0"/>
                         <outlet property="pokeTypeLabel" destination="Crz-k8-xV7" id="jJX-ao-SGh"/>
+                        <outlet property="pokeballImageView" destination="fKD-5H-DWA" id="daO-0h-4vw"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="9V6-6g-5Vs" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

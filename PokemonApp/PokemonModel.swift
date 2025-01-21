@@ -23,6 +23,9 @@ class PokemonModel {
     var imagePhoto: UIImage?
     var state: DownloadState = .new
     
+    var typePhoto: UIImage?
+    var stateTypePhoto: DownloadState = .new
+    
     init(number: String, name: String, description: String, type: String, photo: URL, weakness: [String], skills: [String], type_image: URL) {
         self.number = number
         self.name = name
@@ -55,7 +58,7 @@ PokemonModel(
     weakness: ["Bug", "Ghost", "Dark"],
     skills: ["Psystrike (100)", "Recover (0)", "Shadow Ball (50)"],
     type_image: URL(string: "https://archives.bulbagarden.net/media/upload/2/2d/Psychic_icon_HOME3.png")!
-),
+),	
 PokemonModel(
     number: "#025",
     name: "Pikachu",
@@ -145,5 +148,55 @@ PokemonModel(
     weakness: ["Water", "Ground", "Rock"],
     skills: ["Ember (30)", "Fire Fang (40)", "Smokescreen (0)"],
     type_image: URL(string: "https://archives.bulbagarden.net/media/upload/f/f9/Fire_icon_HOME3.png")!
-)
+),
+PokemonModel(
+        number: "#012",
+        name: "Butterfree",
+        description: "Butterfree is a butterfly Pokémon known for its beautiful wings and ability to spread powder to incapacitate foes.",
+        type: "bug",
+        photo: URL(string: "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/home/12.png")!,
+        weakness: ["Fire", "Flying", "Electric", "Rock"],
+        skills: ["Sleep Powder (0)", "Gust (40)", "Bug Buzz (90)"],
+        type_image: URL(string: "https://archives.bulbagarden.net/media/upload/5/51/Bug_icon_HOME3.png")!
+    ),
+    PokemonModel(
+        number: "#092",
+        name: "Gastly",
+        description: "Gastly is a ghostly Pokémon composed of gas. It can slip through walls and frighten foes with its eerie presence.",
+        type: "ghost",
+        photo: URL(string: "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/home/92.png")!,
+        weakness: ["Ghost", "Dark", "Psychic", "Ground"],
+        skills: ["Lick (30)", "Shadow Ball (50)", "Confuse Ray (0)"],
+        type_image: URL(string: "https://archives.bulbagarden.net/media/upload/2/23/Ghost_icon_HOME3.png")!
+    ),
+    PokemonModel(
+        number: "#132",
+        name: "Ditto",
+        description: "Ditto can transform into any Pokémon or object, mimicking their appearance and moves perfectly.",
+        type: "normal",
+        photo: URL(string: "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/home/132.png")!,
+        weakness: ["Fighting"],
+        skills: ["Transform (0)"],
+        type_image: URL(string: "https://archives.bulbagarden.net/media/upload/8/8c/Normal_icon_HOME3.png")!
+    ),
+    PokemonModel(
+        number: "#151",
+        name: "Mew",
+        description: "A playful and elusive mythical Pokémon said to contain the DNA of all other Pokémon.",
+        type: "psychic",
+        photo: URL(string: "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/home/151.png")!,
+        weakness: ["Bug", "Ghost", "Dark"],
+        skills: ["Psychic (90)", "Aura Sphere (80)", "Energy Ball (70)"],
+        type_image: URL(string: "https://archives.bulbagarden.net/media/upload/2/2d/Psychic_icon_HOME3.png")!
+    ),
+    PokemonModel(
+        number: "#304",
+        name: "Aron",
+        description: "A tough Pokémon with a metallic body, Aron feeds on iron to maintain its hard armor.",
+        type: "steel",
+        photo: URL(string: "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/home/304.png")!,
+        weakness: ["Water", "Fighting", "Ground"],
+        skills: ["Iron Head (50)", "Rock Slide (75)", "Protect (0)"],
+        type_image: URL(string: "https://archives.bulbagarden.net/media/upload/7/78/Steel_icon_HOME3.png")!
+    )
 ]

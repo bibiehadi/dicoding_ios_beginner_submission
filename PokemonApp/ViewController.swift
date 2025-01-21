@@ -33,6 +33,30 @@ extension ViewController: UITableViewDataSource {
             cell.pokemonImage.image = pokemon.imagePhoto
             cell.pokeTypeLabel.text = pokemon.type
             cell.pokeNumberLabel.text = pokemon.number
+            cell.typeImageView.image = pokemon.typePhoto
+//            if pokemon.type == "fire" {
+//                cell.pokemonView.backgroundColor = UIColor(named: "FireColor")
+//            } else if pokemon.type == "grass" {
+//                cell.pokemonView.backgroundColor = UIColor(named: "GrassColor")
+//            } else if pokemon.type == "water" {
+//                cell.pokemonView.backgroundColor = UIColor(named: "WaterColor")
+//            } else if pokemon.type == "electric" {
+//                cell.pokemonView.backgroundColor = UIColor(named: "ElectricColor")
+//            } else if pokemon.type == "poison" {
+//                cell.pokemonView.backgroundColor = UIColor(named: "PoisonColor")
+//            } else if pokemon.type == "ground" {
+//                cell.pokemonView.backgroundColor = UIColor(named: "GroundColor")
+//            } else if pokemon.type == "ice" {
+//                cell.pokemonView.backgroundColor = UIColor(named: "IceColor")
+//            } else if pokemon.type == "fairy" {
+//                cell.pokemonView.backgroundColor = UIColor(named: "FairyColor")
+//            } else if pokemon.type == "psychic" {
+//                cell.pokemonView.backgroundColor = UIColor(named: "PsychicColor")
+//            } else if pokemon.type == "steel" {
+//                cell.pokemonView.backgroundColor = UIColor(named: "SteelColor")
+//            } else {
+//                cell.pokemonView.backgroundColor = UIColor(named: "FirstColor")
+//            }
             
             if pokemon.state == .new {
                 cell.loadingIndicator.isHidden = false
@@ -41,6 +65,14 @@ extension ViewController: UITableViewDataSource {
             }else {
                 cell.loadingIndicator.stopAnimating()
                 cell.loadingIndicator.isHidden = true
+            }
+            
+            if pokemon.stateTypePhoto == .new {
+                cell.loadingTypeIndicator.isHidden = false
+                cell.loadingTypeIndicator.startAnimating()
+            }else {
+                cell.loadingTypeIndicator.stopAnimating()
+                cell.loadingTypeIndicator.isHidden = true
             }
             
             return cell
@@ -62,6 +94,19 @@ extension ViewController: UITableViewDataSource {
                 }catch {
                     pokemon.state = .failed
                     pokemon.imagePhoto = nil
+                }
+            }
+        }
+        if pokemon.stateTypePhoto == .new {
+            Task {
+                do {
+                    let image = try await imageDownloader.downloadImage(url: pokemon.type_image)
+                    pokemon.stateTypePhoto = .downloaded
+                    pokemon.typePhoto = image
+                    self.pokemonTableView.reloadRows(at: [indexPath], with: .automatic)
+                }catch {
+                    pokemon.stateTypePhoto = .failed
+                    pokemon.typePhoto = nil
                 }
             }
         }
