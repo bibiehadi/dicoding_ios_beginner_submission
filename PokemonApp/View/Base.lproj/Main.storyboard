@@ -99,9 +99,18 @@
                                 </constraints>
                             </imageView>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="XoW-Lu-7DF">
-                                <rect key="frame" x="16" y="411" width="240" height="128"/>
+                                <rect key="frame" x="16" y="408" width="240" height="120"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="120" id="pJK-Oc-eGv"/>
+                                </constraints>
                             </tableView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Skills" textAlignment="justified" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Xc9-D3-iwl">
+                                <rect key="frame" x="16" y="380.5" width="36" height="17"/>
+                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="14"/>
+                                <color key="textColor" name="SecondColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="lda-lt-12S"/>
                         <color key="backgroundColor" name="FirstColor"/>
@@ -109,15 +118,19 @@
                             <constraint firstItem="cCt-Yc-PdS" firstAttribute="centerX" secondItem="lda-lt-12S" secondAttribute="centerX" id="5mg-cu-6Tg"/>
                             <constraint firstItem="nLU-zj-LrH" firstAttribute="top" secondItem="lda-lt-12S" secondAttribute="top" constant="8" id="89B-yo-HnR"/>
                             <constraint firstItem="Q8I-c4-9yX" firstAttribute="top" secondItem="cCt-Yc-PdS" secondAttribute="bottom" constant="8" id="Bux-nX-gZu"/>
+                            <constraint firstItem="Xc9-D3-iwl" firstAttribute="top" secondItem="AgQ-Dj-Ayk" secondAttribute="bottom" constant="20" id="CYE-ee-ulx"/>
                             <constraint firstAttribute="bottom" secondItem="6tt-mm-GzZ" secondAttribute="bottom" constant="-65" id="ICz-Pv-7a3"/>
                             <constraint firstItem="nLU-zj-LrH" firstAttribute="centerX" secondItem="lda-lt-12S" secondAttribute="centerX" id="Iaz-xY-8Lr"/>
                             <constraint firstItem="lda-lt-12S" firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="AgQ-Dj-Ayk" secondAttribute="trailing" constant="16" id="Lhy-dR-Fq6"/>
                             <constraint firstItem="Q8I-c4-9yX" firstAttribute="centerX" secondItem="lda-lt-12S" secondAttribute="centerX" id="QCj-tB-0rX"/>
                             <constraint firstItem="AgQ-Dj-Ayk" firstAttribute="top" secondItem="Q8I-c4-9yX" secondAttribute="top" constant="30" id="RgE-9L-ejK"/>
+                            <constraint firstItem="XoW-Lu-7DF" firstAttribute="leading" secondItem="lda-lt-12S" secondAttribute="leading" constant="16" id="TL4-1P-WS7"/>
                             <constraint firstItem="cCt-Yc-PdS" firstAttribute="top" secondItem="nLU-zj-LrH" secondAttribute="bottom" constant="8" id="XOR-Nl-36q"/>
+                            <constraint firstItem="lda-lt-12S" firstAttribute="trailing" secondItem="XoW-Lu-7DF" secondAttribute="trailing" constant="64" id="eTL-z3-InS"/>
                             <constraint firstAttribute="trailing" secondItem="6tt-mm-GzZ" secondAttribute="trailing" constant="-63" id="how-ot-z7d"/>
-                            <constraint firstItem="XoW-Lu-7DF" firstAttribute="top" secondItem="AgQ-Dj-Ayk" secondAttribute="bottom" constant="20" id="ikh-cH-dH9"/>
+                            <constraint firstItem="XoW-Lu-7DF" firstAttribute="top" secondItem="Xc9-D3-iwl" secondAttribute="bottom" constant="10.5" id="ikh-cH-dH9"/>
                             <constraint firstItem="AgQ-Dj-Ayk" firstAttribute="leading" secondItem="lda-lt-12S" secondAttribute="leading" constant="16" id="mVY-sa-AU5"/>
+                            <constraint firstItem="Xc9-D3-iwl" firstAttribute="leading" secondItem="lda-lt-12S" secondAttribute="leading" constant="16" id="qzv-cU-Cnn"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="fRd-0y-wRh"/>
@@ -126,6 +139,7 @@
                         <outlet property="pokeDetailView" destination="u1b-4r-Qr2" id="6gu-3p-7d3"/>
                         <outlet property="pokeImageView" destination="nLU-zj-LrH" id="5Hr-j4-AK1"/>
                         <outlet property="pokeNameLabel" destination="cCt-Yc-PdS" id="oVd-tv-pj1"/>
+                        <outlet property="pokeSkillsTabelView" destination="XoW-Lu-7DF" id="2L0-JG-ty7"/>
                         <outlet property="pokeTypeImageView" destination="fKD-5H-DWA" id="xSu-KN-YO0"/>
                         <outlet property="pokeTypeLabel" destination="Crz-k8-xV7" id="jJX-ao-SGh"/>
                         <outlet property="pokeballImageView" destination="fKD-5H-DWA" id="daO-0h-4vw"/>
@@ -159,7 +173,7 @@
         <!--Item-->
         <scene sceneID="hP6-8D-3R1">
             <objects>
-                <viewController id="TdM-FK-g4N" sceneMemberID="viewController">
+                <viewController id="TdM-FK-g4N" customClass="ProfileViewController" customModule="PokemonApp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="bTT-K8-sN1">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -198,6 +212,9 @@
                         </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="Item" image="person" catalog="system" id="oap-IK-QxK"/>
+                    <connections>
+                        <outlet property="profileImageView" destination="6tz-p9-SWM" id="cp7-Nl-CvO"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="xCJ-VG-cE4" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>

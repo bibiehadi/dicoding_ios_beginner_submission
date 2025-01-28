@@ -54,9 +54,10 @@
                                     </label>
                                 </subviews>
                                 <constraints>
-                                    <constraint firstItem="dcU-Fv-rAS" firstAttribute="centerY" secondItem="cg4-rX-rZk" secondAttribute="centerY" id="Jey-KQ-hJ7"/>
-                                    <constraint firstItem="dcU-Fv-rAS" firstAttribute="centerX" secondItem="cg4-rX-rZk" secondAttribute="centerX" id="RNW-Wv-01u"/>
-                                    <constraint firstItem="IWb-X3-0Wu" firstAttribute="leading" secondItem="cg4-rX-rZk" secondAttribute="trailing" constant="10" id="x6j-t7-Fwa"/>
+                                    <constraint firstItem="dcU-Fv-rAS" firstAttribute="centerY" secondItem="cg4-rX-rZk" secondAttribute="centerY" placeholder="YES" id="Jey-KQ-hJ7"/>
+                                    <constraint firstItem="dcU-Fv-rAS" firstAttribute="centerX" secondItem="cg4-rX-rZk" secondAttribute="centerX" placeholder="YES" id="RNW-Wv-01u"/>
+                                    <constraint firstItem="IWb-X3-0Wu" firstAttribute="centerY" secondItem="dYi-ov-GXe" secondAttribute="centerY" placeholder="YES" id="XAk-jz-CEZ"/>
+                                    <constraint firstItem="IWb-X3-0Wu" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="cg4-rX-rZk" secondAttribute="trailing" constant="10" placeholder="YES" id="tCU-SN-7Uj"/>
                                 </constraints>
                             </stackView>
                         </subviews>
