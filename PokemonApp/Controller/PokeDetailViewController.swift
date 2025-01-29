@@ -25,7 +25,7 @@ class PokeDetailViewController: UIViewController, UITableViewDataSource {
         
         
         if let result = pokemon {
-            pokeNameLabel.text = result.name
+            pokeNameLabel.text = result.name + " \(result.number)"
             pokeDescLabel.text = result.description
             pokeTypeLabel.text = result.type
             pokeImageView.image = result.imagePhoto
